@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "willow",
   "name": "LitmusCheck documentation",
   "colors": {
     "primary": "#4542CC",
