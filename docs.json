@@ -18,6 +18,83 @@
             "pages": [
               "index"
             ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              {
+                "group": "Suites and Tests",
+                "pages": [
+                  "core-concepts/suites",
+                  "core-concepts/tests"
+                ]
+              },
+              {
+                "group": "Segments and POM",
+                "pages": [
+                  "core-concepts/segments",
+                  "core-concepts/elements"
+                ]
+              },
+              "core-concepts/compose",
+              "core-concepts/variables",
+              "core-concepts/data-driven-testing"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "agents/planning",
+              "agents/goal-to-test",
+              "agents/locator-generation",
+              "agents/custom-script-generation",
+              "agents/triage-failure",
+              "agents/heal-test"
+            ]
+          },
+          {
+            "group": "Composing Tests",
+            "pages": [
+              "composing/overview",
+              {
+                "group": "Steps",
+                "pages": [
+                  "composing/ai-steps",
+                  "composing/non-ai-steps"
+                ]
+              },
+              "composing/goal",
+              "composing/ai-use",
+              {
+                "group": "Reusability",
+                "pages": [
+                  "composing/using-elements",
+                  "composing/using-segments"
+                ]
+              },
+              "composing/custom-scripts",
+              "composing/data-driven-tests"
+            ]
+          },
+          {
+            "group": "Running Tests and Suites",
+            "pages": [
+              "running/overview",
+              "running/dashboard",
+              "running/schedules",
+              "running/cicd",
+              "running/reports",
+              "running/logs-and-traces",
+              "running/config"
+            ]
+          },
+          {
+            "group": "Coming Soon",
+            "pages": [
+              "upcoming/api-testing",
+              "upcoming/heal-test",
+              "upcoming/load-testing"
+            ]
           }
         ]
       }
