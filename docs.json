@@ -16,7 +16,8 @@
           {
             "group": "Getting started",
             "pages": [
-              "index"
+              "getting-started/welcome",
+              "getting-started/onboard"
             ]
           },
           {
@@ -86,6 +87,15 @@
               "running/reports",
               "running/logs-and-traces",
               "running/config"
+            ]
+          },
+          {
+            "group": "Maintaining tests",
+            "pages": [
+              "maintain/quarantine",
+              "maintain/updating-locators",
+              "maintain/updating-segments",
+              "maintain/ai-assisted-healing"
             ]
           },
           {
