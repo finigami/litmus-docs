@@ -3,4 +3,25 @@ title: "Running Overview"
 description: "Overview of executing tests and managing runs in LitmusCheck"
 ---
 
+## Running and Monitoring
 
+### 3 ways to run suites
+1. Manually from the dashboard
+2. Scheduling
+3. Integrating with the CI/CD pipeline
+
+Individual tests can only be run from the dashboard - on the suite page or test page
+
+### Monitoring artifacts
+Runs create the following artifacts
+- Suite run report with pass/fail summary
+- Logs for each test run
+- Browser traces for every test
+- GIF created from screenshots during each test run
+
+## Setting up slack alerts  
+1. Go to **Settings** (top nav bar).  
+2. Enter your Slack channel webhook URL.  
+3. Click **Save**.
+
+You’ll receive alerts with pass/fail/skip counts and details on failed or skipped tests.
