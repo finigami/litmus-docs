@@ -84,6 +84,7 @@
               "running/dashboard",
               "running/schedules",
               "running/cicd",
+              "running/test",
               "running/reports",
               "running/logs-and-traces",
               "running/config"
