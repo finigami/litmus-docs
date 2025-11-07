@@ -3,4 +3,79 @@ title: "Non‑AI Steps"
 description: "Define deterministic steps like go-to, wait, reload"
 ---
 
+These are deterministic browser and utility actions. Unlike AI-driven steps, they perform precise, predefined operations—like navigation, waiting, or switching tabs—giving you granular control over your test flow.
 
+---
+
+## 1. Go Back
+**Purpose:** Simulates a user clicking the browser's "back" button. This navigates the browser to the previous page in its session history.
+
+---
+
+## 2. Go to URL
+**Purpose:** Navigates the current browser tab to a new web address.
+* **Arguments:**
+    * **URL to navigate to:** The full URL (e.g., `https://...`) that you want the browser to load.
+
+---
+
+## 3. Wait Time
+**Purpose:** Pauses the test execution for a specified duration. This is useful for waiting for non-interactive elements, like an animation to finish, or for deliberately slowing down a test.
+* **Arguments:**
+    * **Time to wait in seconds:** The number of seconds the test should pause (e.g., `5`).
+
+---
+
+## 4. New Tab
+**Purpose:** Opens a new browser tab and navigates it to a specified URL. The test's focus (context) will automatically switch to this new tab.
+* **Arguments:**
+    * **URL to navigate to:** The URL you want the new tab to open.
+
+---
+
+## 5. Switch Tab
+**Purpose:** Changes the test's focus from the current tab to another tab that is already open. Use this when your test opens multiple tabs and you need to perform actions on a different tab.
+* **Arguments:**
+    * This step provides two methods for selecting the tab:
+        1.  **Select a tab by title:** Choose from a dropdown list of all currently open tab titles. This is ideal when a previous step (like a "Click") opened a new tab.
+        2.  **Enter URL or pattern:** Specify the URL (or a part of it) of the tab you want to switch to. The test will find the first tab that matches the pattern.
+
+---
+
+## 6. Run Script
+**Purpose:** Executes a custom code snippet (e.g., Playwright commands) for advanced, custom actions. This is a powerful feature for advanced users when a standard action isn't enough.
+
+---
+
+## 7. Reuse Test (Use Segment)
+**Purpose:** Inserts a pre-saved sequence of test steps (a "Segment") into the current test. This works just like a reusable function in programming, making your tests modular and easy to maintain.
+> **Note:** To learn how to create and manage segments, see the "Using Segments" section under Reusability.
+
+---
+
+## 8. Key Press
+**Purpose:** Simulates pressing one or more keys on the keyboard. This is used for submitting forms (pressing "Enter"), using keyboard shortcuts (like "Ctrl+S"), or testing keyboard navigation.
+* **Arguments:**
+    * **Key type to press:** A dropdown of the keyboard action (e.g., `press`, `down`, `up`). `press` is the most common, as it simulates both a key down and key up event.
+    * **Value to press:** The key you want to press. This accepts single keys (e.g., `Enter`, `Tab`, `a`) or combinations (e.g., `Control+S`, `Shift+Tab`).
+
+---
+
+## 9. Page Reload
+**Purpose:** Reloads (refreshes) the current page, identical to a user clicking the browser's refresh button.
+
+---
+
+## 10. Set State Variable
+**Purpose:** Creates or updates a variable within the test's memory. This allows you to store a value and reuse it in later steps (e.g., in an "Input" or "Verify" action).
+* **Arguments:**
+    * **Variable name:** The name of the variable to store (e.g., `myUser`).
+    * **Variable value:** The value to assign to the variable (e.g., `standard_user`).
+
+---
+
+## 11. Scroll
+**Purpose:** Scrolls the page in a specified direction.
+* **Arguments:**
+    * **Direction to scroll:** A dropdown list of options (e.g., `down`, `up`, `to bottom`, `to top`).
+    * **Number of pixels to scroll:** The number of pixels to scroll (e.g., `500`). This is a mandatory field for all scroll types.

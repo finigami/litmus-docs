@@ -3,4 +3,34 @@ title: "Using Segments"
 description: "Compose flows by reusing grouped steps and actions"
 ---
 
+Segments work just like reusable functions in a normal Playwright structure. They allow you to save a common portion of a test (like a "Login" or "Add to Cart" flow) and then reuse that set of steps in any other test.
 
+---
+
+## How to Create a Segment
+
+Let's say you have a test called "Login Test" and you want to use those same login steps at the beginning of all your other tests.
+
+1.  Navigate to the **Segments** tab in the main navigation.
+2.  Click the **"Add Segment"** button.
+3.  A pop-up will appear. First, give your new segment a clear name (e.g., "Login Flow").
+4.  Next, select the test you want to build from (e.g., "Login Test") from the dropdown.
+5.  Finally, choose the **Start Step** and the **End Step**. This tells the system that all steps *between* (and including) these two points will be saved as your reusable segment.
+6.  Click **"Save"**.  
+
+![Test script](/images/running/SegmentEdit.png)  
+
+
+---
+
+## How to Use a Segment
+
+Once your segment is saved, you can add it to any test.
+
+1.  Go to the test where you want to use the segment.
+2.  In the "Add an instruction" dropdown, choose the **"Reuse Test"** action.
+3.  From the new dropdown that appears, select the name of the segment you want to add (e.g., "Login Flow").
+
+This will insert all the steps from that segment directly into your current test.
+
+![Test script](/images/running/ReuseTest.png)  

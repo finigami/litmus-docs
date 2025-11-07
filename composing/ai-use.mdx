@@ -1,6 +1,45 @@
 ---
-title: "When to Use AI"
-description: "Choose between AI use for generating script, or executing at run time"
+title: "When to Use AI "
+description: "Choose between using AI to generate a script or to execute a step at run time"
 ---
 
+Our platform offers powerful AI features to accelerate test creation. When building test steps that interact with elements (like "Click" or "Input"), the most important concept to understand is the difference between using AI to **generate a script** (a one-time action) versus using AI to **execute a step** (a repeatable runtime action).
 
+This guide will help you understand the critical choice you'll make when building your test steps.
+
+---
+
+## The "AI Step" Choice: Generate Script vs. Execute Every Time
+
+When you add a step, you have two primary ways to tell the test how to find the element:
+
+1.  **"New Element" (Use AI):** You use an AI prompt (e.g., "the login button") to find the element.
+2.  **"Existing Element" (Use Saved):** You select an element you have already saved.
+
+When you use the **"New Element"** option, you are presented with a critical choice that determines the stability and reliability of your test:
+
+### 1. `Use AI to: "Generate script only"` (Recommended Best Practice)
+
+This is the most stable and recommended method.
+
+* **How it works:** In Compose Mode, the AI finds the element *once* based on your prompt. It then analyzes the element and saves its permanent, stable selector (like an ID or `data-test`) as part of the test step.
+* **Why it's better:** The AI *does not run again* during your daily tests. Your test runs fast and reliably, using the saved selector. This gives you the speed of AI for *composing* and the stability of a traditional script for *executing*. You don't need to worry about AI failures during a run.
+
+> **Rule of Thumb:** AI for composing is excellent. For daily runs, you should prefer saved elements and code, not live AI rendering.
+
+### 2. `Use AI to: "Execute step every time"` (Advanced Cases)
+
+This method is your **"Dynamic Finder."**
+
+* **How it works:** The test step *saves your text prompt*, not a selector. Every single time the test runs, the AI must re-read the prompt and search the page to find the element.
+* **When to use it:** This should *only* be used for advanced cases where an element is highly dynamic and has no stable selector (e.g., its ID changes every time the page loads).
+* **The Trade-Off:** This method is slower and less stable. It carries a higher risk of failure if the AI cannot find the element during a run.
+
+---
+
+## Summary: Element Handling Methods
+
+| AI Method | How it Works | Best For... |
+| :--- | :--- | :--- |
+| **`Generate script only`** | AI finds a stable selector *once* in compose mode. The saved test uses this selector. | **Recommended Best Practice.** Building 99% of tests. Fast creation & stable daily runs. |
+| **`Execute step every time`** | AI finds the element based on your *prompt* every time the test runs. | **Advanced cases only.** For highly dynamic elements where selectors always fail. |
