@@ -73,7 +73,13 @@
                   "composing/using-segments"
                 ]
               },
-              "composing/custom-scripts",
+              {
+                "group": "Custom Scripts",
+                "pages": [
+                  "composing/ai-script-generation",
+                  "composing/manual-script-generation"
+                ]
+              },
               "composing/data-driven-tests"
             ]
           },

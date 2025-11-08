@@ -3,4 +3,41 @@ title: "From Goal to Test"
 description: "Turn a natural-language goal into an executable test, or part of a test"
 ---
 
+## Argument
 
+* **Prompt:** This feature accepts a plain, human-language prompt and converts it into one or more executable test steps.
+
+"Goal" is an AI-powered mode that turns your natural language prompts into executable test steps. This feature can be used in two primary ways: to build an entire end-to-end test from scratch or to add specific steps to a test you are already building.
+
+---
+
+## 1. Perform a Complete End-to-End Test
+
+Use this method to generate an entire test flow, like a login, purchase, or user-registration, all from a single prompt.
+
+1.  Begin by adding the **"Go to url"** instruction to load the starting page for your test.
+2.  In the **"Tell Agent what to do"** field, write a detailed, multi-step prompt that describes the entire test.
+    > **Example:**
+    > "Enter 'standard_user' as username and 'secret_sauce' as Password, click login. Then, select any product and complete the checkout process."
+3.  The AI will execute these steps in the compose mode.
+4.  After the execution is complete, you can **add the generated steps** to your test. This automatically converts the AI's actions into a permanent, reusable Playwright script, so you don't need to use the prompt again for this test.
+
+This process makes automation testing significantly faster by turning a high-level goal into a complete script.
+
+---
+
+## 2. Perform Partial Actions
+
+Use this method when you are already halfway through writing a test and want the AI to perform the next one or two actions.
+
+1.  While building your test, simply use the **"Tell Agent what to do"** field.
+2.  Provide a specific, single-action prompt.
+    > **Example:**
+    > "Find the 'Add' CTA under the 'Today' section and click on it."
+3.  The AI will find the element, perform the action, and show you the code or element it used for the operation. You can then add this single step to your test.
+
+---
+
+## Note: Current Limitations
+
+Please be aware that while the AI mode can *perform* "Verify" and "Visible" assertions during its run, the feature to **add these assertion steps** to your saved test is still in development.
