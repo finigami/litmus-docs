@@ -3,3 +3,122 @@ title: "Variables"
 description: "Use variables in environment, data files or in-test state"
 ---
 
+## What are Variables?
+
+**Variables** in LitmusCheck allow you to parameterize your tests by using dynamic values instead of hard-coded data. Variables can be sourced from different places (data files, environments, or test state) and are substituted into test steps at execution time. This makes your tests more flexible, maintainable, and reusable across different environments and data scenarios.
+
+Variables enable you to write tests once and run them with different configurations, data sets, and environments without modifying the test itself.
+
+---
+
+## Key Features
+
+### 1. **Multiple Variable Types**
+- **Data-Driven Variables**: Values from CSV files (format: `${variableName}`)
+- **Environment Variables**: Values from environment configurations (format: `{{env.variableName}}`)
+- **State Variables**: Values set during test execution within the test itself
+
+### 2. **Automatic Substitution**
+- Variables are automatically replaced with their values during test execution
+- Works in any test step that accepts text input except prompts
+- Supports both data-driven and environment variable formats
+
+### 3. **Environment-Specific Values**
+- Use different variable values for different environments (dev, staging, prod)
+- Switch environments without changing test code
+- Maintain environment-specific configurations
+
+### 4. **Data-Driven Integration**
+- Reference CSV column values in test steps
+- Test executes once per row with different variable values
+- Enables comprehensive data scenario testing
+
+### 5. **Runtime State Management**
+- Set variables during test execution
+- Store values from one step to use in later steps
+- Build dynamic test flows based on runtime values
+
+---
+
+## Variable Types
+
+### Data-Driven Variables (`${variableName}`)
+
+Variables loaded from CSV files linked to tests:
+- Format: `${COLUMN_NAME}` where `COLUMN_NAME` matches a CSV column header
+- Substituted with values from the current CSV row during execution
+- Used for testing multiple data scenarios
+
+**Example:**
+```javascript
+// CSV has columns: username, password
+// In test step: Type '${username}' into username field
+// Executes with: Type 'john@example.com' (value from CSV row)
+```
+
+### Environment Variables (`{{env.variableName}}`)
+
+Variables defined in environment configurations:
+- Format: `{{env.VARIABLE_NAME}}`
+- Substituted with values from the selected environment
+- Used for environment-specific values (URLs, API keys, etc.)
+
+**Example:**
+```javascript
+// Environment has: baseUrl = 'https://staging.example.com'
+// In test step: Go to '{{env.baseUrl}}/login'
+// Executes with: Go to 'https://staging.example.com/login'
+```
+
+### State Variables
+
+Variables set and used within a single test execution:
+- Set using "Set State Variable" action
+- Available for subsequent steps in the same test run
+- Used for dynamic test flows
+
+**Example:**
+```javascript
+// Step 1: Set state variable 'userId' = '12345'
+// Step 2: Verify text contains '{{state.userId}}'
+```
+
+---
+
+## How Variables Work
+
+1. **Define Variables**: Create variables in CSV files or environment configurations
+2. **Reference in Tests**: Use variable syntax in test steps
+3. **Execution**: Variables are substituted with actual values when test runs
+4. **Multiple Values**: For data-driven tests, test runs multiple times with different variable values
+
+---
+
+## Use Cases
+
+- **Environment Management**: Use different URLs, API keys, or credentials per environment
+- **Data-Driven Testing**: Test with multiple user accounts, products, or input combinations
+- **Dynamic Flows**: Store runtime values (like order IDs) for use in later steps
+- **Configuration Management**: Centralize configuration values outside of tests
+- **Test Reusability**: Write tests once, run with different data and environments
+
+---
+
+## Variable Substitution
+
+Variables are substituted in:
+- **Input Fields**: Text values in Type, Select, and other input actions
+- **Verification Values**: Expected values in Verify actions
+- **URLs**: Navigation targets
+- **Any Text Field**: Anywhere text is accepted in test steps
+
+---
+
+## Best Practices
+
+- **Descriptive Names**: Use clear, descriptive variable names
+- **Consistent Naming**: Follow naming conventions (e.g., camelCase or UPPER_SNAKE_CASE)
+- **Validate Variables**: Ensure variables are defined before using them
+- **Environment Separation**: Keep environment-specific variables in environment configs, not in tests
+- **Data File Organization**: Organize CSV files logically and use clear column headers
+- **State Variable Management**: Use state variables instead of const, var, let to avoid collision

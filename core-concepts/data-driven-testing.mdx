@@ -2,3 +2,78 @@
 title: "Data-Driven Testing"
 description: "Run tests with datasets (CSV) using parameterization"
 ---
+
+## What is Data-Driven Testing?
+
+**Data-Driven Testing** is a testing approach that allows you to run the same test multiple times with different input data. Instead of creating separate tests for each data scenario, you create one test and provide it with a dataset (CSV file) containing multiple rows of test data. The test executes once for each row in your dataset, using the values from that row as variables.
+
+This approach significantly reduces test maintenance overhead and makes it easy to test multiple scenarios, user accounts, or data combinations without duplicating test logic.
+
+---
+
+## Key Features
+
+### 1. **CSV File Support**
+- Upload CSV files containing your test data
+- Each row represents a separate test execution
+- Column headers become variable names
+
+### 2. **Variable Substitution**
+- Reference CSV columns using `${COLUMN_NAME}` syntax
+- Variables are automatically replaced with values from the current row
+- Works in any test step that accepts text input except prompts
+
+### 3. **Automatic Iteration**
+- Test runs once per row in your CSV file
+- Each execution uses data from a different row
+- Results are tracked separately for each iteration
+
+### 4. **Compose Mode Support**
+- During test creation, uses the first row for validation
+- Allows you to build and test your test logic with sample data
+- Full dataset is used when running saved tests
+
+### 5. **Result Tracking**
+- Each data row execution is tracked independently
+- View results for each iteration in test logs
+- Identify which data combinations passed or failed
+
+---
+
+## How Data-Driven Testing Works
+
+1. **Upload CSV File**: Create and upload a CSV file with your test data
+2. **Link to Test**: Associate the CSV file with your test via settings
+3. **Use Variables**: Reference CSV columns in test steps using `${COLUMN_NAME}`
+4. **Run Test**: Test executes once for each row in the CSV
+5. **Review Results**: Check results for each data iteration
+
+---
+
+## Example Use Cases
+
+- **Multiple User Logins**: Test login functionality with different username/password combinations
+- **Form Validation**: Test form submissions with various valid and invalid inputs
+- **Product Testing**: Test e-commerce flows with different products, prices, and quantities
+- **API Testing**: Test endpoints with different request parameters
+- **Cross-Browser Data**: Test the same flow with different browser configurations
+
+---
+
+## Variable Syntax
+
+Use the `${COLUMN_NAME}` format to reference CSV columns:
+
+- **In Input Steps**: `'${username}'` or `'${password}'`
+- **In Verify Steps**: `'${expected_text}'`
+- **In Any Text Field**: Variables work anywhere text is accepted
+
+---
+
+## Best Practices
+
+- **Clear Column Names**: Use descriptive, consistent column headers
+- **First Row for Validation**: Ensure the first row contains valid test data for Compose mode
+- **Data Independence**: Each row should represent a complete, independent test scenario
+- **Error Handling**: Consider edge cases and invalid data in your dataset
+- **Data Organization**: Group related test data together in logical CSV files

@@ -3,3 +3,86 @@ title: "Runs"
 description: "Understand how LitmusCheck runs are created, tracked, and managed"
 ---
 
+## What are Runs?
+
+**Runs** are execution instances of tests or test suites in LitmusCheck. Each time you execute a test or suite, a Run is created to track the execution status, results, timing, and other metadata. Runs provide a complete history of test executions, allowing you to monitor test performance, debug failures, and track test reliability over time.
+
+There are two types of runs:
+- **Test Runs**: Execution instances of individual tests
+- **Suite Runs**: Execution instances of entire test suites (which contain multiple test runs)
+
+---
+
+## Key Features
+
+### 1. **Execution Tracking**
+- Track status: Queued, Running, Success, Failed, Error, Skipped
+- Monitor start and end times
+- View execution duration for performance analysis
+
+### 2. **Result Management**
+- View detailed results for each test run
+- See pass/fail status for individual steps
+- Access execution logs and error messages
+
+### 3. **Run History**
+- Maintain complete history of all test executions
+- Compare results across different runs
+- Track test reliability and flakiness
+
+### 4. **Configuration Tracking**
+- Record browser configuration used for each run
+- Track environment variables applied
+- Store test data used (for data-driven tests)
+
+### 5. **Suite Run Aggregation**
+- Suite runs aggregate results from all contained test runs
+- View overall suite status (success count, failure count, etc.)
+- Track suite-level metrics and trends
+
+---
+
+## Run Lifecycle
+
+1. **Queued**: Run request is created and added to execution queue
+2. **Running**: Test execution is in progress
+3. **Completed**: Execution finished with a final status:
+   - **Success**: All steps passed
+   - **Failed**: One or more steps failed
+   - **Error**: Execution encountered an error
+   - **Skipped**: Test was skipped (e.g., due to dependencies)
+
+---
+
+## Run Information
+
+Each run contains:
+- **Run ID**: Unique identifier for the run
+- **Test/Suite ID**: Reference to the test or suite that was executed
+- **Status**: Current execution status
+- **Timestamps**: Start time, end time, duration
+- **Configuration**: Browser, environment, and other settings
+- **Results**: Step-by-step execution results
+- **Logs**: Detailed execution logs and error messages
+
+---
+
+## Use Cases
+
+- **Test Monitoring**: Track test execution status and results
+- **Debugging**: Review run logs to identify and fix test failures
+- **Performance Analysis**: Analyze execution times to optimize tests
+- **CI/CD Integration**: Use run results to gate deployments
+- **Reporting**: Generate test execution reports for stakeholders
+- **Trend Analysis**: Identify patterns in test failures over time
+
+---
+
+## Best Practices
+
+- **Review Failed Runs**: Regularly check failed runs to maintain test health
+- **Monitor Run Times**: Track execution duration to catch performance regressions
+- **Use Run History**: Compare current runs with historical runs to identify trends
+- **Check Logs**: Use detailed logs to debug and understand test behavior
+- **Track Configurations**: Note which configurations work best for your tests
+- **Suite-Level Monitoring**: Monitor suite runs to get a holistic view of test health
