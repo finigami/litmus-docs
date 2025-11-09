@@ -2,3 +2,70 @@
 title: "Suites"
 description: "Organize related tests into suites and control execution"
 ---
+
+## What are Suites?
+
+**Suites** are containers that organize related tests together. They provide a way to group tests at a product level, making it easier to manage, execute, and maintain your test collection. Suites also define shared configuration settings like browser settings, authentication credentials, and environment variables that apply to all tests within the suite.
+
+Think of a suite as a project folder that contains related tests and provides a common execution environment for them.
+
+---
+
+## Key Features
+
+### 1. **Test Organization**
+- Group tests that are required to run together
+- Organize tests by product for multi-product testing
+- Create a clear structure for your test collection
+
+### 2. **Shared Configuration**
+- Define browser settings that apply to all suite tests
+- Configure multiple environments
+
+### 3. **Suite-Level Execution**
+- Run all tests in a suite with a single action
+- Track suite execution as a single unit
+
+### 4. **Suite Runs**
+- Create suite runs that aggregate results from all test runs
+- View overall suite status (total tests, passed, failed, etc.)
+- Monitor suite-level metrics and trends
+
+### 6. **Test Relationships**
+- Tests belong to exactly one suite
+- Suites can contain multiple tests
+- Elements and segments are scoped to suites
+
+---
+
+## How Suites Work
+
+1. **Create Suite**: Define a suite with name, description, and configuration
+2. **Add Tests**: Create tests into the suite
+3. **Configure Settings**: Set browser, authentication, and other shared settings
+4. **Execute**: Run individual tests or the entire suite
+5. **Monitor**: Track suite runs and test results
+
+---
+
+## Suite Structure
+
+Each suite contains:
+- **Suite ID**: Unique identifier for the suite
+- **Name**: Descriptive name for the suite
+- **Description**: Explanation of what the suite tests
+- **Configuration**: Browser and Playwright settings
+- **Tests**: Collection of tests belonging to the suite
+- **Elements**: Element library scoped to the suite
+- **Segments**: Reusable segments available to suite tests
+
+---
+
+## Best Practices
+
+- **Product mapping**: Create a single suite for a product or a high-level product section
+- **Clear Naming**: Use descriptive names that indicate what the suite tests
+- **Shared Configuration**: Leverage suite-level settings for common configurations
+- **Appropriate Size**: Keep suites focused - not too large, not too fragmented
+- **Regular Maintenance**: Review and update suite organization as your application evolves
+- **Documentation**: Add clear descriptions to explain suite purpose and scope

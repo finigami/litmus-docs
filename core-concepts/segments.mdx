@@ -2,3 +2,88 @@
 title: "Segments"
 description: "Group reusable steps and selectors to compose larger flows"
 ---
+
+## What are Segments?
+
+**Segments** are reusable groups of test steps that can be saved and inserted into multiple tests. They function like reusable functions in programming, allowing you to define common test flows once and reuse them across your test suite.
+
+For example, if you have a "Login" flow that consists of multiple steps (navigate to login page, enter username, enter password, click submit), you can save those steps as a segment called "Login Flow" and then insert that entire flow into any test that needs to log in first.
+
+---
+
+## Key Features
+
+### 1. **Step Grouping**
+- Select a range of steps from an existing test
+- Define start and end steps to create a segment
+- Capture complete test flows for reuse
+
+### 2. **Reusability**
+- Insert segments into any test within the same suite
+- Build complex tests by combining multiple segments
+- Reduce test duplication and maintenance overhead
+
+### 3. **Modular Test Design**
+- Break down tests into logical, reusable components
+- Compose larger test flows from smaller segments
+- Promote test organization and maintainability
+
+### 4. **Single Source of Truth**
+- Update a segment once to update all tests using it
+- Maintain common flows in one place
+- Ensure consistency across your test suite
+
+### 5. **Test Composition**
+- Combine segments with regular test steps
+- Mix and match segments to create different test scenarios
+- Build comprehensive test coverage efficiently
+
+---
+
+## How Segments Work
+
+1. **Create Segment**: Select steps from an existing test and save them as a segment
+2. **Name Segment**: Give the segment a descriptive name (e.g., "Login Flow", "Add to Cart")
+3. **Use in Tests**: Insert the segment into any test using the "Reuse Test" action
+4. **Maintain**: Update the segment when the flow changes, affecting all using tests
+
+---
+
+## Segment Structure
+
+Each segment contains:
+- **Segment ID**: Unique identifier for the segment
+- **Segment Name**: Human-readable name for the segment
+- **Source Test**: The test from which the segment was created
+- **Start Step**: The first step included in the segment
+- **End Step**: The last step included in the segment
+
+---
+
+## Common Use Cases
+
+- **Authentication Flows**: Save login/logout sequences for reuse
+- **Navigation Patterns**: Reuse common navigation flows
+- **Setup/Teardown**: Standardize test setup and cleanup procedures
+- **Common Actions**: Reuse frequently used action sequences (e.g., "Add Item to Cart")
+- **Multi-Step Operations**: Break down complex operations into reusable segments
+
+---
+
+## Benefits
+
+- **Reduced Duplication**: Write common flows once, use everywhere
+- **Easier Maintenance**: Update flows in one place instead of multiple tests
+- **Faster Test Creation**: Build tests by combining existing segments
+- **Consistency**: Ensure all tests use the same implementation of common flows
+- **Modularity**: Create well-organized, modular test suites
+
+---
+
+## Best Practices
+
+- **Descriptive Names**: Use clear, descriptive names for segments (e.g., "User Login Flow" not "Segment1")
+- **Logical Grouping**: Group related steps that form a complete, reusable flow
+- **Keep Segments Focused**: Each segment should represent a single, cohesive operation
+- **Regular Updates**: Keep segments updated when application flows change
+- **Test Segments Independently**: Ensure segments work correctly before reusing them

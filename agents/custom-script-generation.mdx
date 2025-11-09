@@ -3,4 +3,67 @@ title: "Custom Script Gen Agent"
 description: "Creates tailored scripts and utilities for complex flows"
 ---
 
+## Overview
+
+The Custom Script Gen Agent is used by the AI script step in compose mode to generate custom Node.js scripts for complex test scenarios. It analyzes the full current DOM and creates a complete script in a single shot, making it ideal for handling complex logic, dynamic actions, and sophisticated verifications that go beyond standard test steps.
+
+## How It Works
+
+1. **AI Script Step**: The agent is triggered when you use the AI script step in compose mode, providing a natural language description of the complex action or verification you need.
+
+2. **DOM Analysis**: The agent analyzes the full current DOM to understand the page structure and available elements.
+
+3. **Script Generation**: Based on your description and the DOM analysis, the agent generates a complete Node.js script in a single attempt, including helpful comments for easier understanding.
+
+4. **Execution and Verification**: The agent automatically executes the generated script to ensure it works correctly before marking the step as successful.
+
+5. **Add to Test**: Once verified, the script can be added to your test as a custom step.
+
+## Use Cases
+
+The Custom Script Gen Agent is perfect for scenarios that require custom logic or complex operations, such as:
+
+- **Custom Logic**: Generating random strings with specific formatting requirements or custom validation rules
+- **Data Manipulation**: Sorting elements from a list before taking action, filtering data, or transforming values
+- **Dynamic Actions**: Performing actions based on runtime conditions or calculated values
+- **Complex Verifications**: Validating multiple conditions, comparing complex data structures, or performing advanced assertions
+- **Custom Utilities**: Creating helper scripts for specific test scenarios
+
+## Key Features
+
+- **Single-Shot Generation**: Creates complete, working scripts in a single generation, eliminating the need for iterative refinement.
+
+- **Commented Code**: Generates Node.js scripts with clear comments explaining the logic, making it easier to understand and maintain.
+
+- **Automatic Verification**: Executes the generated script to ensure it works before marking the step as successful, reducing the need for manual review.
+
+- **Full DOM Access**: Uses the complete current DOM for analysis, providing comprehensive context for script generation.
+
+<Tip>
+**Current DOM limitation**
+
+The Custom Script Gen Agent can only conduct actions on the current DOM in a single shot. For multi-page actions or workflows that span multiple pages, use the Goal-to-Test Agent instead, which is designed to handle complex, multi-page scenarios.
+</Tip>
+
+<Tip>
+**Editing generated scripts**
+
+If you need to customize the generated script, you can copy the script code and use the Run Script action to add your manually customized version. This allows you to refine the script while maintaining the agent's initial logic as a starting point.
+</Tip>
+
+<Tip>
+**Run-time AI execution**
+
+The Custom Script Gen Agent can also be configured to use AI at run-time in every single execution. This enables dynamic, AI-powered actions or verifications that adapt to the current page state during each test run, making it ideal for handling complex, context-dependent scenarios.
+</Tip>
+
+## Best Practices
+
+- **Be Specific**: Clearly describe the complex logic or verification you need, including any specific requirements or constraints.
+
+- **Use for Complex Scenarios**: Reserve this agent for truly complex scenarios that can't be handled by standard test steps or simpler AI actions.
+
+- **Review Generated Scripts**: Always review the generated script and its comments to ensure it matches your requirements before adding it to your test.
+
+- **Test After Customization**: If you customize the generated script, test it thoroughly to ensure it works as expected in your test environment.
 

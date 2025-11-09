@@ -3,4 +3,66 @@ title: "Failure Triaging Agent"
 description: "Diagnoses failures with logs, traces, and probable causes"
 ---
 
+## Overview
+
+The Failure Triaging Agent automatically diagnoses test failures after a test fails in a suite run. It intelligently analyzes failures by re-running the test and comparing the results, then provides clear classifications and reasoning to help you understand what went wrong and how to address it.
+
+## How It Works
+
+1. **Automatic Trigger**: The agent is automatically triggered after a test fails during a suite run.
+
+2. **Re-run the Test**: The agent re-runs the failed test to gather additional diagnostic information and compare the results.
+
+3. **Failure Analysis**: The agent analyzes both the original failure and the re-run results to classify the failure type.
+
+4. **Classification and Reasoning**: Based on the analysis, the agent provides a clear classification along with concise reasoning explaining the root cause.
+
+## Classification Outcomes
+
+### Successful on Retry
+
+If the test succeeds during the triage run, it is marked as **successful_on_retry**. The agent provides reasoning explaining why the first run failed, helping you understand transient issues like:
+- Network timeouts
+- Race conditions
+- Temporary service unavailability
+- Resource contention
+
+### Persistent Failures
+
+If the test still fails during the triage run, the agent classifies the failure into one of three categories:
+
+- **Bug**: The failure indicates an actual issue in the application under test. The agent identifies what went wrong and why it's a bug.
+
+- **Update Test**: The test itself needs to be updated, perhaps due to:
+  - Changes in the application UI or functionality
+  - Outdated selectors or assertions
+  - Missing wait conditions or timeouts
+
+- **Manual Review Required**: The failure requires human review to determine the root cause. The agent provides context to help with the investigation.
+
+## Key Features
+
+- **Automatic Diagnosis**: No manual intervention needed—the agent automatically triages failures as they occur.
+
+- **Automatic Retry**: The agent automatically retries the test to account for flakiness, helping distinguish between transient failures and persistent issues.
+
+- **Comprehensive Analysis**: The agent uses both page screenshots and failure logs to understand the root cause, providing a complete picture of what happened.
+
+- **Clear Reasoning**: Each classification comes with clear and concise reasoning, making it easy to understand why the failure occurred and what action to take.
+
+- **Comparison Analysis**: By comparing the original failure with the re-run, the agent can distinguish between transient and persistent issues.
+
+<Tip>
+**Suite runs only**
+
+The triage agent is only triggered after suite runs and not on manually triggered test run failures. This ensures that triage runs are performed in a consistent environment and helps maintain the reliability of failure analysis.
+</Tip>
+
+## Best Practices
+
+- **Act on Recommendations**: Use the classification to prioritize your response—bugs need immediate attention, while test updates can be scheduled.
+
+- **Learn from Retries**: Pay attention to "successful_on_retry" classifications to identify patterns in transient failures that might need addressing.
+
+- **Manual Review**: When the agent recommends manual review, use the provided reasoning and screenshots to investigate further.
 

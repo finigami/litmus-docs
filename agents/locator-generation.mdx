@@ -1,6 +1,55 @@
 ---
-title: "Locator Generation Agent"
-description: "Generates robust selectors for Elements (POM)"
+title: "Prompt to Page Element"
+description: "Generates robust selectors for Elements (POM) from natural language prompt"
 ---
 
+## Overview
+
+The Prompt to Page Element AI Agent is the core engine behind all AI steps in compose mode. It intelligently matches your natural language prompts to the correct page elements, generating robust selectors that eliminate flakiness in your tests. This agent is specifically optimized for test case generation for web applications and does not hallucinate—it only works with elements that actually exist on the page.
+
+## How It Works
+
+1. **Takes Active Page and Prompt**: The agent receives the current active page state and your natural language prompt describing the element you want to interact with.
+
+2. **Filters Relevant Elements**: The agent analyzes all elements currently visible in the viewport and filters them to identify those relevant to your prompt.
+
+3. **Element Selection**: Using advanced reasoning, the agent determines which element is directly associated with your prompt, ensuring accurate element identification.
+
+4. **Generates Multiple Selectors**: The agent generates multiple unique selectors for the identified element, giving you options to choose from. This approach eliminates flakiness by providing alternative selector strategies.
+
+5. **Selector Options**: You can review and select the most appropriate selector from the generated options, ensuring your tests remain stable even if the page structure changes slightly.
+
+## Key Features
+
+- **Compose Mode Engine**: This agent powers all AI-driven steps in compose mode, making it the foundation of intelligent test creation.
+
+- **Viewport-Based Analysis**: The agent only analyzes elements currently visible in the viewport, ensuring it works with what's actually on screen.
+
+- **No Hallucination**: The agent is designed to never create or reference elements that don't exist on the page, making it reliable and trustworthy for test automation.
+
+- **Multiple Selector Generation**: By generating multiple unique selectors, the agent provides fallback options that help maintain test stability over time.
+
+- **Web Application Optimized**: Specifically tuned for web application test case generation, understanding common patterns and structures in modern web applications.
+
+## Important Considerations
+
+- **Viewport Limitation**: The agent only looks at the current viewport. If an element is not visible, you should scroll to bring it into the viewport before using the agent to locate it.
+
+- **Element Visibility**: Ensure the target element is visible on the page before prompting the agent, as it cannot locate elements outside the current viewport.
+
+<Tip>
+**Getting elements into viewport**
+
+If the element you want to interact with is not currently visible, use a scroll action first to bring it into the viewport. The agent can then accurately identify and generate selectors for the element.
+</Tip>
+
+## Best Practices
+
+- **Be Specific in Prompts**: Provide clear, descriptive prompts that uniquely identify the element you want to interact with.
+
+- **Ensure Visibility**: Always scroll elements into the viewport before attempting to locate them with the agent.
+
+- **Review Selector Options**: When multiple selectors are generated, choose the one that best matches your test's needs and is least likely to break with page changes.
+
+- **Use Descriptive Prompts**: Include context in your prompts (e.g., "the login button in the header" rather than just "button") to help the agent identify the correct element.
 

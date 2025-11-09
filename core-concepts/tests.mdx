@@ -2,3 +2,112 @@
 title: "Tests"
 description: "Learn how to write, structure, and execute tests in LitmusCheck"
 ---
+
+## What are Tests?
+
+**Tests** are the fundamental building blocks of test automation in LitmusCheck. A test represents a single test case that verifies specific functionality or behavior in your application. Each test consists of a sequence of instructions (steps) that interact with your application and validate expected outcomes.
+
+Tests are written using natural language instructions that are translated into executable Playwright scripts. They can be created interactively using Compose mode, where you watch your test execute in real-time, or they can be structured programmatically.
+
+---
+
+## Key Features
+
+### 1. **Natural Language Instructions**
+- Write test steps in plain English
+- No need to write code manually
+- AI-powered translation to executable scripts
+
+### 2. **Step-Based Structure**
+- Tests are composed of sequential steps
+- Each step performs a specific action (Click, Type, Verify, etc.)
+- Steps execute in order to form a complete test flow
+
+### 3. **Multiple Execution Modes**
+- **Script Mode**: Execute AI steps using saved Playwright scripts (faster, more stable)
+- **AI Mode**: Execute AI steps using AI-powered element detection at run-time (more flexible)
+
+### 4. **Test Metadata**
+- **Name**: Descriptive test name
+- **Description**: What the test verifies
+- **Status**: Current state of the test (draft, active)
+
+### 5. **Data-Driven Support**
+- Link CSV files to tests for data-driven execution
+- Run tests multiple times with different data sets
+- Reference data variables in test steps
+
+### 6. **Element Integration**
+- Use saved elements for stable selectors
+- Leverage the element library for consistency
+- Update elements once to fix all using tests
+
+### 7. **Segment Reusability**
+- Insert reusable segments into tests
+- Compose complex tests from smaller components
+- Reduce duplication and maintenance overhead
+
+### 8. **Export Capability**
+- Export tests as Playwright scripts
+- Use generated code in external tools
+- Integrate with CI/CD pipelines
+
+---
+
+## Test Structure
+
+Each test contains:
+- **Test ID**: Unique identifier for the test
+- **Name**: Human-readable test name
+- **Description**: What the test verifies
+- **Instructions**: Sequence of test steps
+- **Playwright Scripts**: Generated executable code
+- **Suite Association**: The suite the test belongs to
+- **Data File**: Optional CSV file for data-driven testing
+
+---
+
+## Test Lifecycle
+
+1. **Create**: Build test using Compose mode or import
+2. **Edit**: Modify steps, add instructions, update elements
+3. **Save**: Store test for future execution
+4. **Run**: Execute test manually or via schedule
+5. **Monitor**: Review run results and logs
+6. **Maintain**: Update test as application changes
+
+---
+
+## Types of Test Steps
+
+Tests can include various step types:
+- **Navigation**: Go to URL, navigate tabs
+- **Interaction**: Click, Type, Select, Upload, Key Press
+- **Verification**: Verify text, element state, page content
+- **Flow Control**: Wait, Scroll
+- **Reusability**: Insert segments, reuse test flows
+- **Custom**: Run custom scripts for advanced scenarios
+
+---
+
+## Use Cases
+
+- **Functional Testing**: Verify core application functionality
+- **Regression Testing**: Ensure existing features still work
+- **Integration Testing**: Test interactions between components
+- **User Journey Testing**: Validate complete user workflows
+- **Smoke Testing**: Quick validation of critical paths
+- **Data Validation**: Test with various data combinations
+
+---
+
+## Best Practices
+
+- **Clear Naming**: Use descriptive names that indicate what is being tested
+- **Focused Tests**: Each test should verify one specific behavior or flow
+- **Use Elements**: Leverage saved elements for stable, maintainable selectors
+- **Reuse Segments**: Use segments for common flows to reduce duplication
+- **Data-Driven When Appropriate**: Use data-driven testing for testing multiple scenarios
+- **Regular Maintenance**: Update tests when application changes
+- **Documentation**: Add clear descriptions to explain test purpose
+- **Independent Tests**: Design tests to run independently without dependencies

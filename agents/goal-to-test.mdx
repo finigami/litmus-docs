@@ -1,6 +1,45 @@
 ---
 title: "Goal-to-Test Agent"
-description: "Converts high-level goals into executable tests"
+description: "Converts high-level goals into executable test steps"
 ---
 
+## Overview
+
+The Goal-to-Test Agent converts natural language goals into executable test steps during test creation. It takes your high-level objectives and triggers an AI agent that completes multiple browser actions to fulfill the goal, generating ready-to-use test steps with corresponding Playwright scripts.
+
+## How It Works
+
+1. **Enter a Natural Language Goal**: During test creation, provide a goal in plain, human language describing what you want to test. The agent understands your intent and breaks it down into actionable browser steps.
+
+2. **AI Agent Execution**: The Goal-to-Test Agent triggers an AI agent that performs multiple browser actions to complete your goal. The agent can handle complex, multi-step workflows automatically.
+
+3. **Generate Test Steps**: As the agent executes, it outputs multiple test steps, each with corresponding Playwright script code. These steps can be directly added to your test.
+
+4. **Add to Test**: Review the generated steps and add them to your test. The Playwright scripts are ready to use. You can also edit existing steps or add new steps once you accept the goal steps.
+
+## Key Features
+
+- **Compose Mode Integration**: The Goal-to-Test Agent can be used inside the compose mode, allowing you to seamlessly integrate AI-generated steps into your test creation workflow.
+
+- **Multi-Page Multi-Step Actions**: The agent can perform complex workflows that span multiple pages and involve numerous sequential actions, making it ideal for end-to-end test scenarios.
+
+- **Rapid Step Generation**: The agent uses multiple low-latency sub-agents working in parallel to generate test steps rapidly, significantly reducing the time needed to create comprehensive tests.
+
+- **Transparent Reasoning**: The agent's reasoning process is shared with you as logs, providing visibility into how it interprets your goal and executes the necessary actions.
+
+<Tip>
+**Optimal goal size**
+
+For best results, use goals that cover roughly 5-10 action steps. This provides enough context for the agent to understand the workflow while maintaining clarity and focus. Add verifications separately after the main action steps are generated.
+</Tip>
+
+## Best Practices
+
+- **Be Specific**: Clearly describe the actions you want performed, including target elements, expected behaviors, and any relevant context.
+
+- **Break Down Complex Goals**: For very complex workflows, consider breaking them into multiple smaller goals (5-10 steps each) rather than one large goal.
+
+- **Add Verifications Separately**: Generate the main action steps first, then add verification and assertion steps separately for better control and clarity.
+
+- **Review Generated Steps**: Always review the generated Playwright scripts to ensure they match your expectations before adding them to your test.
 

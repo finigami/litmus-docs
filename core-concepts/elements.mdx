@@ -2,3 +2,87 @@
 title: "Elements"
 description: "Define page elements (selectors), and reuse best practices"
 ---
+
+## What are Elements?
+
+**Elements** are saved page element definitions that store selectors and metadata for UI components in your application. They implement the Page Object Model (POM) design pattern, allowing you to centralize element selectors and reuse them across multiple tests.
+
+Instead of hard-coding selectors like `#login-button` or `button[data-testid="submit"]` directly in your tests, you save them once as Elements. If a selector changes, you update it in one place, and all tests using that element automatically use the new selector.
+
+---
+
+## Key Features
+
+### 1. **Centralized Selector Management**
+- Store element selectors in one location
+- Update selectors once to fix all tests using them
+- Reduce maintenance overhead significantly
+
+### 2. **Multiple Selector Support**
+- Save multiple selector strategies for the same element
+- Increases test reliability and resilience
+
+### 3. **Element Stores**
+- Organize elements into "Stores" (like folders or tags)
+- Group elements by page or feature (e.g., "Login Page", "Checkout Page")
+- Makes element management scalable and organized
+
+### 4. **AI-Powered Element Detection**
+- Use AI to find elements during test creation
+- Automatically extract and save selectors
+- Supports various selector types (CSS, XPath, text-based)
+
+### 5. **Element Reusability**
+- Use saved elements in any test within the same suite
+- Consistent element usage across your test suite
+- Promotes best practices and standardization
+
+### 6. **Element Merging**
+- Combine duplicate elements into a single master element
+- Clean up your element library
+- Ensure consistency across your test suite
+
+### 7. **Update Existing Elements**
+- Modify selectors for saved elements
+- Changes propagate automatically to all using tests
+- Critical for maintaining tests when UI changes
+
+---
+
+## How Elements Work
+
+1. **Create Element**: Save an element during test creation or manually
+2. **Assign to Store**: Organize elements into logical groups
+3. **Use in Tests**: Reference saved elements when building test steps
+4. **Maintain**: Update selectors when UI changes, affecting all tests automatically
+
+---
+
+## Element Structure
+
+Each element contains:
+- **Element ID**: Unique identifier for the element
+- **Description**: Human-readable description of the element
+- **Prompt**: The original AI prompt used to find the element
+- **Selectors**: Array of selector strategies (CSS, XPath, etc.)
+- **Store Name**: The store/folder the element belongs to
+
+---
+
+## Use Cases
+
+- **UI Refactoring**: When developers change selectors, update elements once
+- **Cross-Test Consistency**: Ensure all tests use the same selectors for the same elements
+- **Team Collaboration**: Share element definitions across team members
+- **Test Stability**: Use multiple selector strategies for better reliability
+- **Maintenance Efficiency**: Reduce time spent fixing broken selectors
+
+---
+
+## Best Practices
+
+- **Save Elements Early**: Save elements as you create tests, not after
+- **Use Descriptive Names**: Name elements clearly (e.g., "Login Submit Button" not "Button1")
+- **Organize with Stores**: Group related elements into stores by page or feature
+- **Regular Updates**: Keep elements updated when UI changes
+- **Merge Duplicates**: Periodically review and merge duplicate elements
