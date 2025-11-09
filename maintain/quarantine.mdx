@@ -1,6 +1,28 @@
 ---
 title: "Quarantine"
-description: "Isolate flaky or failing tests to unblock pipelines"
+description: "Isolate flaky or failing tests to reduce failure 'noise'"
 ---
 
+## Why Tests Fail
 
+When a test fails, it's almost always for one of these three reasons:
+
+1.  **True Failures:** The test found a **real bug** in your application. (Do not quarantine)
+2.  **Flaky Tests:** The test is unreliable and fails intermittently due to unstable elements or timing. (Quarantine)
+3.  **Stale Tests:** The application's feature changed, and the test is now out-of-date. (Quarantine)
+
+## The Problem: Test Failure Noise
+
+When flaky or stale tests (types 2 and 3) fail repeatedly, they create "test failure noise." This is dangerous because the high failure count can hide **true bugs** (type 1), allowing them to be missed.
+
+Your goal is to quarantine the "noisy" tests so you can focus on the real bugs.
+
+## How to Quarantine a Test
+
+To quarantine a test, you simply move it from the "Run" state back to the "Draft" state. Schedulers are configured to ignore any test in "Draft."
+
+1.  From the test list, select the test you want to quarantine.
+2.  This will open the test's detail page. On the left of the screen, locate the **Status** section.
+3.  Click the toggle to move it from **"Run"** to **"Draft"**.
+![Test script](/images/running/Draft.png)
+The test is now quarantined. It will be skipped by all scheduled runs, immediately cleaning up your test reports. You can now fix the test in your own time and re-publish it by toggling it back to "Run."
