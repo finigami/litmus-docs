@@ -99,6 +99,7 @@
           {
             "group": "Maintaining tests",
             "pages": [
+              "maintain/ai-triaging",
               "maintain/quarantine",
               "maintain/updating-locators",
               "maintain/updating-segments",
