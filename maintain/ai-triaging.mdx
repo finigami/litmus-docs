@@ -1,6 +1,47 @@
 ---
-title: "Ai-Triaging"
-description: "Update selectors safely when the UI changes"
+title: "AI-Triaging"
+description: "How to use AI-Triage results to maintain your tests"
 ---
 
+## Using AI-Triaging for Test Maintenance
 
+The AI-Triaging agent is your automated test investigator. When a test fails in a suite run, it automatically re-runs the test and compares the results to tell you *why* it failed.
+
+Your main job is to read the agent's classification. This "Triage Result" tells you exactly what kind of maintenance is required, saving you from investigating the failure manually.
+
+---
+
+## How to Read and Act on Triage Results
+
+After a suite run, go to the **"Triage Results"** tab to see the agent's report. You will see one of the following classifications.
+
+### 1. Category: `successful on retry`
+
+This classification is given when the test failed the first time but **passed** on the agent's re-run.
+
+* **What it means:** You have a **flaky test**. The failure was likely caused by a temporary, transient issue.
+* **How to use this:** While you can be confident this failure was not a "real" application bug, you should still investigate *why* it was flaky.
+* **Example (from the screenshot):**
+    This is a perfect example of a **brittle test logic** issue, not a transient bug.
+    * **The Original Failure:** The agent's reasoning states, "The previous failure was due to the regex expecting 'kL' units while the actual response used 'm³' units, causing a pattern mismatch." This clearly shows the test was **hardcoded** to *only* accept "kL".
+    * **The "Successful" Retry:** The test passed on the second attempt, but this was likely just due to chance (the data on the re-run happened to be "kL").
+    * **Action Required:** Do not ignore this. The agent has highlighted a **logic issue** in your test. By seeing this result, you know you need to update your test script to be more robust (e.g., by changing the hardcoded "kL" to a regex that accepts multiple units, like "kL" or "m³").
+![Test script](/images/maintain/traige.png)
+### 2. Category: `Update Test`
+
+This is the most important classification for test maintenance.
+
+* **What it means:** The agent has determined that the **application is working, but your test script is broken or out-of-date.**
+* **How to use this:** This is a direct instruction to perform maintenance. The cause is almost always a **UI change** (like a changed selector) or a new step in a flow. You should go to the test and **update the failing locators or steps**.
+
+### 3. Category: `Bug`
+
+This classification indicates a real problem.
+
+* **What it means:** The agent is confident that your test script is correct and the **application itself is broken.**
+* **How to use this:** **Do not "fix" this test.** This is a true failure. You should immediately copy the test results and report this as a bug to your development team.
+
+<Tip> 
+Suite runs only  :
+The triage agent is only triggered after suite runs and not on manually triggered test run failures. This ensures that triage runs are performed in a consistent environment and helps maintain the reliability of failure analysis.
+ </Tip>

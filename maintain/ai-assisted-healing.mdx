@@ -2,3 +2,51 @@
 title: "AI-Assisted Healing"
 description: "Use AI to suggest and apply fixes to failing tests"
 ---
+
+## What is AI-Assisted Healing?
+
+AI-Assisted Healing is a two-part process that combines automated diagnosis with AI-powered fixing. It creates a powerful and safe workflow for maintaining your tests.
+
+1.  **Part 1: The Diagnosis (AI-Triaging)**
+    The **AI-Triaging** agent automatically runs after a failed suite, analyzes the failure (logs, screenshots, re-run data), and provides a "Triage Result" (e.g., `Bug`, `Update Test`, or `Successful on Retry`).
+
+2.  **Part 2: The Healing (Compose Mode)**
+    You, the user, use the agent's diagnosis to "heal" the test. The triage data tells you *why* it failed, so you can confidently go into **Compose Mode** and use AI prompts to update the test's logic or locators.
+
+---
+
+## The AI-Assisted Healing Workflow
+
+Here is the step-by-step process for using triage data to fix a broken test.
+
+### 1. Get Your Diagnosis
+Start by opening the **"Triage Results"** tab. Look for a test that has been classified as **`Update Test`**.
+
+This classification is the agent's direct recommendation for healing. It means the agent believes the application is working, but your **test script is broken or out-of-date**. The "Reasoning" column will give you the critical clue (e.g., "Element not found" or "Pattern mismatch").
+
+### 2. Go to Compose Mode
+Click on the failing test and open it in **Compose Mode**.
+
+### 3. Re-run and Find the Failing Step
+Re-run the test in Compose Mode. It will stop at the exact step that the Triage Agent identified as failing.
+
+### 4. Apply the "Healing" (The Fix)
+This is where you use the triage data to update the prompt.
+
+1.  Hover over the broken step, click the three dots, and select **"Edit"**.
+2.  You can now apply the fix based on the triage data:
+
+    * **If the Triage reason was "Element not found":** This means your selector/prompt is stale. Your fix is to **write a new, more specific AI prompt** using the "New Element" option. (e.g., change your prompt from "Click submit" to "Click the 'Complete Purchase' button").
+
+    * **If the Triage reason was a "Pattern mismatch"** (like the `kL` vs. `m³` example): This means your *logic* is brittle. Your fix is to **edit the step** (e.g., a "Run Script" step) and update the logic to be more flexible, such as changing a hardcoded string to a more robust regex.
+
+3.  Save the step. Once it passes in Compose Mode, your test is "healed" and ready for the next suite run.
+
+---
+
+## Example: Healing a Broken Locator
+
+1.  **Diagnosis:** You check **Triage Results**. A test is marked **`Update Test`**. The reasoning is: "Element not found: unable to find element with prompt 'Click login'."
+2.  **Action:** You open the test in **Compose Mode** and re-run. It fails on step #3, "Click login."
+3.  **The Fix:** You "Edit" the step and see the UI has changed—the button text is now "Sign In." You update the "New Element" prompt to **"Click the 'Sign In' button."**
+4.  **Result:** The step runs successfully. You have used the triage data to safely heal the test.

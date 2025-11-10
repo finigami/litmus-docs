@@ -3,4 +3,49 @@ title: "Updating Locators"
 description: "Update selectors safely when the UI changes"
 ---
 
+## Resolving Failure Due to Flaky/Changed Elements
 
+When your UI changes, a test step can fail because its locator (selector) is flaky or out-of-date. Here is the process to find and fix the broken step.
+
+---
+
+## How to Update a Failing Locator (Simple Fix)
+
+Use this method to quickly fix a single step in a single test.
+
+1.  Select the test that is failing and go to **Compose Mode**.
+2.  Re-run the test. The test will stop at the step that is failing (e.g., "Element not found").
+3.  Now that you've found the failing step, hover over it. Three dots (the options menu) will appear.
+4.  Click the three dots and select **"Edit"**.
+5.  You can now update the locator. You have two choices:
+    * **Use a New Prompt:** Write a new, more specific AI prompt for the "New Element" option.
+    * **Use an Existing Element:** Select a different, pre-saved "Existing Element" from the dropdown.
+6.  Save the step.
+
+---
+
+## How to Update an Existing POM (Saved) Element
+
+When a **saved element** (a POM element) breaks, you want to fix it *once* and have that fix apply everywhere. Here are the two primary methods to do this.
+
+### Method 1: The "Update Existing" Flow (Recommended)
+
+This is the cleanest and most direct method.
+
+1.  Go to **Compose Mode** for any test that uses the broken saved element.
+2.  Hover over the failing step, click the three dots, and select **"Edit"**.
+3.  Regenerate the step by selecting **"New Element"** and entering a new, working prompt.
+4.  Once the step runs successfully, click to **"Save to Store"** (just as you did when creating an element).
+5.  In the "Save to Store" dialog, instead of creating a new element, select the **"Update existing"** option.
+6.  From the dropdown, choose the old, broken saved element that you want to replace.
+7.  Saving this will overwrite the old, flaky selector with your new, working one, fixing it across all tests.
+
+### Method 2: The "Save and Merge" Flow
+
+This is a good alternative if you want to be more cautious.
+
+1.  Follow steps 1-3 from Method 1.
+2.  Instead of "Update existing," save the working step as a **brand new element** (e.g., "Login Button V2").
+3.  Now, go to the main **"Elements"** tab from the navigation.
+4.  Find your old, broken element (e.g., "Login Button").
+5.  Select the **"Merge"** option and merge the old, broken element *into* your new, working one ("Login Button V2"). This will update all tests to use the new element.
