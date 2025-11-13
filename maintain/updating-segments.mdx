@@ -3,4 +3,18 @@ title: "Updating Segments"
 description: "Refactor and evolve segments without breaking tests"
 ---
 
+As your application evolves, you will need to update your saved Segments. This could mean changing the steps they include, or even their name.
 
+---
+
+## How to Update a Segment
+
+1.  Navigate to the main **Segments** tab.
+2.  Click the "Edit" button.
+3.  A pop-up window will appear, allowing you to edit all of the segment's properties:
+    * **Change the Name:** You can update the **Segment Name** to be more descriptive.
+    * **Change the Source Test:** You can select a completely different test from the dropdown to act as the new source for the segment.
+    * **Change the Execution Steps:** You can adjust the **Start Step** and **End Step** dropdowns. For example, you can change the segment to run from Step 3 to Step 6, instead of its original Step 2 to Step 6.
+4.  Click **"Update Segment"** to save your changes.
+![Test script](/images/maintain/UpdateSegment.png)
+Once you save, these changes will be automatically applied to all tests that are currently using this "Reuse Test" segment.
