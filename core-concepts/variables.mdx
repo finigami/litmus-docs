@@ -14,26 +14,31 @@ Variables enable you to write tests once and run them with different configurati
 ## Key Features
 
 ### 1. **Multiple Variable Types**
+
 - **Data-Driven Variables**: Values from CSV files (format: `${variableName}`)
 - **Environment Variables**: Values from environment configurations (format: `{{env.variableName}}`)
 - **State Variables**: Values set during test execution within the test itself
 
 ### 2. **Automatic Substitution**
+
 - Variables are automatically replaced with their values during test execution
 - Works in any test step that accepts text input except prompts
 - Supports both data-driven and environment variable formats
 
 ### 3. **Environment-Specific Values**
+
 - Use different variable values for different environments (dev, staging, prod)
 - Switch environments without changing test code
 - Maintain environment-specific configurations
 
 ### 4. **Data-Driven Integration**
+
 - Reference CSV column values in test steps
 - Test executes once per row with different variable values
 - Enables comprehensive data scenario testing
 
 ### 5. **Runtime State Management**
+
 - Set variables during test execution
 - Store values from one step to use in later steps
 - Build dynamic test flows based on runtime values
@@ -45,11 +50,13 @@ Variables enable you to write tests once and run them with different configurati
 ### Data-Driven Variables (`${variableName}`)
 
 Variables loaded from CSV files linked to tests:
+
 - Format: `${COLUMN_NAME}` where `COLUMN_NAME` matches a CSV column header
 - Substituted with values from the current CSV row during execution
 - Used for testing multiple data scenarios
 
 **Example:**
+
 ```javascript
 // CSV has columns: username, password
 // In test step: Type '${username}' into username field
@@ -59,11 +66,13 @@ Variables loaded from CSV files linked to tests:
 ### Environment Variables (`{{env.variableName}}`)
 
 Variables defined in environment configurations:
+
 - Format: `{{env.VARIABLE_NAME}}`
 - Substituted with values from the selected environment
 - Used for environment-specific values (URLs, API keys, etc.)
 
 **Example:**
+
 ```javascript
 // Environment has: baseUrl = 'https://staging.example.com'
 // In test step: Go to '{{env.baseUrl}}/login'
@@ -73,13 +82,17 @@ Variables defined in environment configurations:
 ### State Variables (`${state.variableName}`)
 
 Variables set and used within a single test execution:
+
 - Set using "Set State Variable" action
 - Available for subsequent steps in the same test run
 - Used for dynamic test flows
 
 **Example:**
+
 ```javascript
-// Step 1: Set state variable 'userId' = '12345', or create a run_script step: `state.userId = '12345'`
+
+// Step 1: Set state variable 'userId' = '12345', 
+// 	or create a run_script step: `state.userId = '12345'`
 // Step 2: Verify text contains '${state.userId}'
 ```
 
@@ -107,6 +120,7 @@ Variables set and used within a single test execution:
 ## Variable Substitution
 
 Variables are substituted in:
+
 - **Input Fields**: Text values in Type, Select, and other input actions
 - **Verification Values**: Expected values in Verify actions
 - **URLs**: Navigation targets
