@@ -70,7 +70,7 @@ Variables defined in environment configurations:
 // Executes with: Go to 'https://staging.example.com/login'
 ```
 
-### State Variables
+### State Variables (`${state.variableName}`)
 
 Variables set and used within a single test execution:
 - Set using "Set State Variable" action
@@ -79,8 +79,8 @@ Variables set and used within a single test execution:
 
 **Example:**
 ```javascript
-// Step 1: Set state variable 'userId' = '12345'
-// Step 2: Verify text contains '{{state.userId}}'
+// Step 1: Set state variable 'userId' = '12345', or create a run_script step: `state.userId = '12345'`
+// Step 2: Verify text contains '${state.userId}'
 ```
 
 ---
