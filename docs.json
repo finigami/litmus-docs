@@ -93,7 +93,8 @@
               "running/test",
               "running/reports",
               "running/logs-and-traces",
-              "running/config"
+              "running/config",
+              "running/tags"
             ]
           },
           {
