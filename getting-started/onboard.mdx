@@ -5,54 +5,54 @@ description: "Learn how to write a basic test"
 
 ## Create a new suite
 **View your suites**  
-Once you’re logged in, your test suites appear in the left sidebar of your homepage.
+Once you are logged in, your test suites appear on your homepage.
 
-![Dashboard](/images/getting-started/homepage.png)
+![Dashboard](/images/getting-started/dashboard-run.png)
 
 **Create a suite**  
-Click the **New** button at the top of the sidebar.
-Enter your suite name and click the **Create** button.
+Click the **New Suite** button at the top of the sidebar.
+Enter your `Suite Name`, `URL` and click the **Create** button.
+![Dashboard](/images/getting-started/create.png)
 
 **View suite details**  
-Click on the suite name in the sidebar.
+Click on the suite name or **View** button on the homepage.
 
-![Suite](/images/getting-started/empty-suite.png)
+![Suite](/images/getting-started/suite.png)
 
 ## Create a test
 
-Inside a suite, click the **New Test** button on the right to launch the Compose View.
+Inside a suite, click the **Add Test** button on the right to launch the Compose View.
 
 ### Adding steps
 - Enter **saucedemo.com** in the Go to URL input and click **Add**
-- Click on **Add an instruction** and select **Input**
+- Click on **Add** icon and select **Input**
 
-![Steps](/images/getting-started/compose-options.png)
-- Enter standard_user in **value**, select **New Element**, and enter Username as **prompt**
-- Click on **Add an instruction** and select **Input**
-- Enter secret_sauce in **value**, select **New Element**, and enter Password as **prompt**
+![Steps](/images/getting-started/new-test.png)
+- Enter `standard_user` in **value**, select **New Element**, and enter Username as **prompt**
+- Click on **Add** icon and select **Input**
+- Enter `secret_sauce` in **value**, select **New Element**, and enter Password as **prompt**
 
 ### Live browser view  
 The browser pane on the right shows your test in action.  
 - Click **Start Run** to open the session.  
-- Click **Stop** to end it.  
-- Click **Rerun** to restart from the first step.
+- Click **Stop** to end it.
 
-![Live view](/images/getting-started/live-view.png)
+![Live view](/images/getting-started/compose-new.png)
 
 ### Adding more steps
-When adding more steps while live view is on, the steps continue to execute
-- Click on **Add an instruction** and select **Click**
+When adding more steps while live view is on, the steps continue to execute.
+- Click on **Add** icon and select **Click**
 - Select **New Element** and enter Login as **prompt**
 
 The live mode will show the execution of the click step.
 
 ### Adding goals
-![Goal Agent](/images/getting-started/goal-agent.png)
-Enter a natural-language goal in the bottom input and click **Go**. The autonomous agent will attempt all available actions to reach your goal. When complete (or if it gets stuck), it will show the sequence of steps it took. You can discard them or add them to your test.
+![Goal Agent](/images/getting-started/goal-new.png)
+Enter a natural-language goal in the bottom input and press **Enter**. The autonomous agent will attempt all available actions to reach your goal. When complete (or if it gets stuck), it will show the sequence of steps it took. You can discard them or add them to your test.
 
 > **Tip:** Keep goals simple for best results.
 
-![Goal Agent Steps](/images/getting-started/goal-agent-steps.png)
+![Goal Agent Steps](/images/getting-started/goal-add.png)
 
 ### Viewing script and selectors  
 When an instruction runs, its generated script appears in the script box. Click the element description to toggle between available selectors.
